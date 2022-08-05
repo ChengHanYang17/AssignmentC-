@@ -1,151 +1,132 @@
-﻿// 01 Introduction to C# and Data Types
-// Understanding Data Types
-// Test your Knowledge
-// 1. What type would you choose for the following “numbers”?
-// A person’s telephone number
-// A person’s height
-// A person’s age
-// A person’s salary
-// A book’s ISBN
-// A book’s price
-// A book’s shipping weight
-// A country’s population
-// The number of stars in the universe
-// The number of employees in each of the small or medium businesses in the
-// United Kingdom (up to about 50,000 employees per business)
+﻿// Test your knowledge
+// 1. What are the six combinations of access modifier keywords and what do they do?
+// 2. What is the difference between the static, const, and readonly keywords when applied to a type member?
+// 3. What does a constructor do?
+// 4. Why is the partial keyword useful?
+// 5. What is a tuple?
+// 6. What does the C# record keyword do?
+// 7. What does overloading and overriding mean?
+// 8. What is the difference between a field and a property?
+// 9. How do you make a method parameter optional?
+// 10. What is an interface and how is it different from abstract class?
+// 11. What accessibility level are members of an interface?
+// 12. True/False. Polymorphism allows derived classes to provide different implementations of the same method.
+// 13. True/False. The override keyword is used to indicate that a method in a derived class is providing its own implementation of a method.
+// 14. True/False. The new keyword is used to indicate that a method in a derived class is providing its own implementation of a method.
+// 15. True/False. Abstract methods can be used in a normal (non-abstract) class.
+// 16. True/False. Normal (non-abstract) methods can be used in an abstract class.
+// 17. True/False. Derived classes can override methods that were virtual in the base class.
+// 18. True/False. Derived classes can override methods that were abstract in the base class.
+// 19. True/False. In a derived class, you can override a method that was neither virtual non abstract in the base class.
+// 20. True/False. A class that implements an interface does not have to provide an implementation for all of the members of the interface.
+// 21. True/False. A class that implements an interface is allowed to have other members that aren’t defined in the interface.
+// 22. True/False. A class can have more than one base class.
+// 23. True/False. A class can implement more than one interface.
 
-// 2. What are the difference between value type and reference type variables? What is
-//    boxing and unboxing?
-// a) Value type will directly hold the value,while reference type will hold the memory address or reference for this value
-// b) value types are stored in stack memory, while reference type will be stored in heap memory
-// c) value type will not be collected by garbage collector, while reference type will be collected by garbage collector because garbage collector work only on heap memory
-// d) value type will can be created by struct or enum, while reference type can be created by class, interface, delegate or array
-// e) value type cannot accept null value but reference type can accept null value
-
-// boxing: convert a value type to a reference type
-// unboxing: convert a reference type to a value type
-
-// 3. What is meant by the terms managed resource and unmanaged resource in .NET
-// managed resource is directly under the control of the garbage collector, while unmanaged resource is not directly under the control of the garbage collector
-
-// 4. Whats the purpose of Garbage Collector in .NET?
-// Garbage Collector manages the allocation and release of memory for an application.
-
-
-// Practice number sizes and ranges
-// 1. Create a console application project named /02UnderstandingTypes/ that outputs the number of bytes in memory that each of the following number types uses, and the
-// minimum and maximum values they can have: sbyte, byte, short, ushort, int, uint, long, ulong, float, double, and decimal.
-// byte bMin = 0;
-// byte bMax = 255;
-// Console.WriteLine($"The byte range is {bMin} to {bMax}");
-// sbyte sbMin = -128;
-// sbyte sbMax = -128;
-// Console.WriteLine($"The sbyte range is {sbMin} to {sbMax}");
-// short sMin = -32768;
-// short sMax = 32767;
-// Console.WriteLine($"The short range is {sMin} to {sMax}");
-// ushort usMin = 0;
-// ushort usMax = 65535;
-// Console.WriteLine($"The ushort range is {usMin} to {usMax}");
-// int iMin = -2147483648;
-// int iMax = 2147483647;
-// Console.WriteLine($"The int range is {iMin} to {iMax}");
-// uint uMin = 0;
-// uint uMax = 4294967295;
-// Console.WriteLine($"The uint range is {uMin} to {uMax}");
-// long lMin = -9223372036854775808;
-// long lMax = 9223372036854775807;
-// Console.WriteLine($"The long range is {lMin} to {lMax}");
-// ulong ulMin = 0;
-// ulong ulMax = 18446744073709551615;
-// Console.WriteLine($"The ulong range is {ulMin} to {ulMax}");
-// float f = 1.2f;
-// Console.WriteLine($"The float is {f}");
-// double d = 1.23;
-// Console.WriteLine($"The double is {d}");
-// decimal de = 1.2343232m;
-// Console.WriteLine($"The decimal is {de}");
-
-
-// 2. Write program to enter an integer number of centuries and convert it to years, days, hours,
-//    minutes, seconds, milliseconds, microseconds, nanoseconds. Use an appropriate data
-//    type for every data conversion. Beware of overflows!
-// byte centuries = 100;
-// ushort years = 365.24;
-// uint days = 876576;
-// int hours = 52594560;
-// long minutes = 3155673600;
-// long seconds = 3155673600000;
-// long milliseconds = 3155673600000000;
-// long microseconds = 3155673600000000000;
-// Console.WriteLine("enter an integer number of centuries: ");
-// int countryNumber = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine(
-//     $"{countryNumber} centuries = {centuries} years = {years} days = {days} hours = {hours} minutes = {minutes} seconds = {seconds}  milliseconds = {milliseconds} microseconds = {microseconds}");
-
-// short centuries = 500;
-// uint years = 182621;
-// uint days = 4382904;
-// int hours = 262974240;
-// long minutes = 15778454400;
-// long seconds = 15778454400000;
-// long milliseconds = 15778454400000000;
-// ulong microseconds = 15778454400000000000;
-// Console.WriteLine("enter an integer number of centuries: ");
-// int countryNumber = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine(
-//     $"{countryNumber} centuries = {centuries} years = {years} days = {days} hours = {hours} minutes = {minutes} seconds = {seconds}  milliseconds = {milliseconds} microseconds = {microseconds}");
-
-
-// Controlling Flow and Converting Types
-//     Test your Knowledge
-// 1. What happens when you divide an int variable by 0?
-// 2. What happens when you divide a double variable by 0?
-// 3. What happens when you overflow an int variable, that is, set it to a value beyond its range?
-// 4. What is the difference between x = y++; and x = ++y;?
-// 5. What is the difference between break, continue, and return when used inside a loop statement?
-// 6. What are the three parts of a for statement and which of them are required?
-// 7. What is the difference between the = and == operators?
-// 8. Does the following statement compile? for ( ; true; ) ;
-// 9. What does the underscore _ represent in a switch expression?
-// 10. What interface must an object implement to be enumerated over by using the foreach statement?
-
-// 1. there will be unhandled exception
-// 2. there will be a infinity symbol on console
-// 3. that will have identifier expected for integral constant is too large
-// 4. x = y++; this first value of y will get copied to x, and x = ++y; this y will be incremented and then be copied to x 
-// 5. a)The Break statement is used to exit from the loop constructs. The continue statement is not used to exit from the loop constructs.
-//    b)The break statement is usually used with the switch statement. The continue statement is not used with the switch statement
-//    c) Break statement: When a break statement is encountered then the control is exited from the loop construct immediately. Continue: When the continue statement is encountered then the control automatically passed from the beginning of the loop statement.
-// 6. for (statement 1; statement 2; statement 3), Statement 1 is executed (one time) before the execution of the code block.
-//     Statement 2 defines the condition for executing the code block. Statement 3 is executed (every time) after the code block has been executed.
-// 7. The = is an assignment operator is used to assign the value on the right to the variable on the left.
-//    The == operator checks whether the two given operands are equal or not.
-// 8. yes, but will creating an infinite loop.
-// 9. The underscore (_) character replaces the default keyword to signify that it should match anything if reached. 
-// 10. The IEnumerator interface , the GetEmunerator() method of the IEnumerable interface returns an IEnumerator interface.
-
-// Practice loops and operators
-// 1. What will happen if this code executes? this will be infinite loop.
-// Create a console application and enter the preceding code. Run the console application and view the output. What happens?
-// int max = 500;
-// for (byte i = 0; i < max; i++)
-// {
-//     Console.WriteLine(i);
-// }
-// What code could you add (don’t change any of the preceding code) to warn us about the problem?
-// int max = 500;
-// for (byte i = 0; i < max; i++)
-// {
-//     if (i < max)
-//     {
-//         Console.WriteLine("warning!!");
+// Working with methods
+// 1. Let’s make a program that uses methods to accomplish a task. Let’s take an array and
+//    reverse the contents of it. For example, if you have 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, it would
+//    become 10, 9, 8, 7, 6, 5, 4, 3, 2, 1.
+//    To accomplish this, you’ll create three methods: one to create the array, one to reverse the
+//    array, and one to print the array at the end.
+//    Your Mainmethod will look something like this:
+//     static void Main(string[] args) {
+//     int[] numbers = GenerateNumbers();
+//     Reverse(numbers);
+//     PrintNumbers(numbers);
 //     }
-//     else
-//     {
-//         Console.WriteLine(i);
-//     }
-// }
 
+// The GenerateNumbersmethod should return an array of 10 numbers. (For bonus points,
+// change the method to allow the desired length to be passed in, instead of just always
+// being 10.)
+// The PrintNumbersmethod should use a foror foreachloop to print out each item in the
+// array. The Reversemethod will be the hardest. Give it a try and see what you can make
+// happen. If you get stuck, here’s a couple of hints:
+// Hint #1:To swap two values, you will need to place the value of one variable in a temporary
+// location to make the swap:
+// // Swapping a and b.
+// int a = 3;
+// int b = 5;
+// int temp = a;
+// a = b;
+// b = temp;
+// Hint #2:Getting the right indices to swap can be a challenge. Use a forloop, starting at 0
+// and going up to the length of the array / 2. The number you use in the forloop will be the
+// index of the first number to swap, and the other one will be the length of the array minus
+// the index minus 1. This is to account for the fact that the array is 0-based. So basically,
+// you’ll be swapping array[index]with array[arrayLength – index – 1].
 
+// 2. The Fibonacci sequence is a sequence of numbers where the first two numbers are 1 and 1,
+//    and every other number in the sequence after it is the sum of the two numbers before it. So
+//    the third number is 1 + 1, which is 2. The fourth number is the 2nd number plus the 3rd,
+//    which is 1 + 2. So the fourth number is 3. The 5th number is the 3rd number plus the 4th
+//    number: 2 + 3 = 5. This keeps going forever.
+//    The first few numbers of the Fibonacci sequence are: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+//    Because one number is defined by the numbers before it, this sets up a perfect opportunity for using recursion.
+// Your mission, should you choose to accept it, is to create a method called Fibonacci, which
+// takes in a number and returns that number of the Fibonacci sequence. So if someone calls
+// Fibonacci(3), it would return the 3rd number in the Fibonacci sequence, which is 2. If
+// someone calls Fibonacci(8), it would return 21.
+// In your Mainmethod, write code to loop through the first 10 numbers of the Fibonacci
+// sequence and print them out.
+// Hint #1:Start with your base case. We know that if it is the 1st or 2nd number, the value will
+// be 1.
+// Hint #2:For every other item, how is it defined in terms of the numbers before it? Can you
+// come up with an equation or formula that calls the Fibonaccimethod again?
 
+// Designing and Building Classes using object-oriented principles
+// 1. Write a program that that demonstrates use of four basic principles of
+//    object-oriented programming /Abstraction/, /Encapsulation/, /Inheritance/ and
+//    /Polymorphism/.
+// 2. Use /Abstraction/ to define different classes for each person type such as Student
+//    and Instructor. These classes should have behavior for that type of person.
+// 3. Use /Encapsulation/ to keep many details private in each class.
+// 4. Use /Inheritance/ by leveraging the implementation already created in the Person
+//    class to save code in Student and Instructor classes.
+// 5. Use /Polymorphism/ to create virtual methods that derived classes could override to
+//    create specific behavior such as salary calculations.
+// 6. Make sure to create appropriate /interfaces/ such as ICourseService, IStudentService,
+//    IInstructorService, IDepartmentService, IPersonService, IPersonService (should have
+//    person specific methods). IStudentService, IInstructorService should inherit from IPersonService.
+// Person
+// Calculate Age of the Person
+// Calculate the Salary of the person, Use decimal for salary
+// Salary cannot be negative number
+// Can have multiple Addresses, should have method to get addresses
+// Instructor
+// Belongs to one Department and he can be Head of the Department
+// Instructor will have added bonus salary based on his experience, calculate his years of experience based on Join Date
+// Student
+//     Can take multiple courses
+//     Calculate student GPA based on grades for courses
+//     Each course will have grade from A to F
+// Course
+//     Will have list of enrolled students
+// Department
+// Will have one Instructor as head
+// Will have Budget for school year (start and end Date Time)
+// Will offer list of courses
+
+// 7. Try creating the two classes below, and make a simple program to work with them, as
+// described below
+// Create a Color class:
+//     On a computer, colors are typically represented with a red, green, blue, and alpha
+//     (transparency) value, usually in the range of 0 to 255. Add these as instance variables.
+//     A constructor that takes a red, green, blue, and alpha value.
+//     A constructor that takes just red, green, and blue, while alpha defaults to 255
+//     (opaque).
+//     Methods to get and set the red, green, blue, and alpha values from a Colorinstance.
+//     A method to get the grayscale value for the color, which is the average of the red,
+//     green and blue values.
+// Create a Ball class:
+//     The Ball class should have instance variables for size and color (the Color class you just
+//     created). Let’s also add an instance variable that keeps track of the number of times it
+//     has been thrown.
+//     Create any constructors you feel would be useful.
+//     Create a Pop method, which changes the ball’s size to 0.
+//     Create a Throw method that adds 1 to the throw count, but only if the ball hasn’t been popped (has a size of 0).
+//     A method that returns the number of times the ball has been thrown.
+
+//     Write some code in your Main method to create a few balls, throw them around a few
+//     times, pop a few, and try to throw them again, and print out the number of times that the
+//     balls have been thrown. (Popped balls shouldn’t have changed.)
